@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   TASKLY - SISTEMA DE DESIGN & VARIÁVEIS CSS (ESTILO SLATE & TEAL)
+   ========================================================================== */
+
+:root {
+  /* Cores Estáticas (Comuns a ambos os modos) */
+  --color-brand: #0D9488;     /* Teal / Verde-esmeralda escuro para botões principais e marca */
+  --color-warning: #EA580C;   /* Laranja Coral para prazos e tarefas urgentes */
+  --color-success: #16A34A;   /* Verde Vivo para tarefas finalizadas e checks */
+  --color-tag: #2563EB;       /* Azul Royal para tags, categorias e matérias */
+
+  /* ☀️ 1. Configuração do Modo Claro (Padrão - Light Mode) */
+  --bg-main: #F8FAFC;         /* Fundo da tela (Cinza ardósia muito claro) */
+  --bg-card: #FFFFFF;         /* Fundo dos blocos, cards e inputs (Branco puro) */
+  --text-main: #1E293B;       /* Texto principal (Azul escuro profundo) */
+  --text-muted: #64748B;      /* Subtextos e prazos secundários (Cinza médio) */
+  --border-color: #E2E8F0;    /* Divisores e bordas sutis (Cinza claro) */
+
+  /* Sombras e destaques adaptáveis */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.03);
+  --input-focus-ring: rgba(13, 148, 136, 0.25);
+}
+
+/* 🌙 2. Configuração do Modo Escuro (Acionado via classe .dark no body) */
+body.dark {
+  --bg-main: #0F172A;         /* Fundo da tela (Slate escuro profundo) */
+  --bg-card: #1E293B;         /* Fundo dos blocos, cards e inputs (Cinza azulado escuro) */
+  --text-main: #F8FAFC;       /* Texto principal (Branco gelo / Slate suave) */
+  --text-muted: #94A3B8;      /* Subtextos e prazos secundários (Cinza claro fosco) */
+  --border-color: #334155;    /* Divisores e bordas sutis (Cinza grafite) */
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 8px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 20px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --input-focus-ring: rgba(13, 148, 136, 0.35);
+}
+
+/* Regras Globais de Renderização */
+html, body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Classes utilitárias com as variáveis CSS obrigatórias */
+.bg-app-main {
+  background-color: var(--bg-main);
+}
+
+.bg-app-card {
+  background-color: var(--bg-card);
+}
+
+.text-app-main {
+  color: var(--text-main);
+}
+
+.text-app-muted {
+  color: var(--text-muted);
+}
+
+.border-app {
+  border-color: var(--border-color);
+}
+
+.btn-brand {
+  background-color: var(--color-brand);
+  color: #FFFFFF;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-brand:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.btn-brand:active {
+  transform: translateY(0);
+}
+
+/* Animações e estados de checklist */
+@keyframes taskPop {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-task-pop {
+  animation: taskPop 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Suavidade nos elementos com transição temática */
+*, *::before, *::after {
+  border-color: var(--border-color);
+}

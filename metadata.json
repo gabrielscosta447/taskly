@@ -1,0 +1,6 @@
+{
+  "name": "Taskly",
+  "description": "Aplicativo moderno e intuitivo de gerenciamento de listas e tarefas com alternância de temas claro/escuro, categorização por ícones e alta produtividade.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
